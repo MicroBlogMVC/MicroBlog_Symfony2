@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+
+    <form action="{{ path('edit_profile') }}" method="POST" enctype="multipart/form-data" novalidate >
+        <legend>Edit your profile</legend>
+
+        <fieldset>     
+            {{ form_errors(form) }}
+            
+            {{ form_label(form.avatar) }}
+            {{ form_errors(form.avatar) }}
+            {% if user.avatar is not null %}
+                <img src="{{ asset('avatars/' ~ user.avatar) }}" alt="{{ user.username }}">
+            {% endif %}
+            {{ form_widget(form.avatar) }}
+            
+            {{ form_row(form.bio) }}
+
+            {{ form_rest(form) }}
+
+            <input type="submit" value="Save" />
+        </fieldset>
+    </form>
+{% endblock %}

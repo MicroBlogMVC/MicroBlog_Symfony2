@@ -1,0 +1,24 @@
+<q>
+    {% include 'MvcUserBundle:User:avatar.html.twig' with { 'user': message.user } %}
+
+    <div class="pull-right">
+        <span class="date">
+            {{ message.createdAt | date("d M Y H:i") }}    
+        </span>
+        {% if app.user and app.user.username == user.username %}
+            <a href="{{ path('delete_message', {'id': message.id }) }}" class="btnDelete">
+                Delete
+                <i class="icon-remove"></i>
+            </a>
+        {% endif %}
+    </div>
+
+    
+    <small>
+        {{ user.username }}
+    </small>
+    
+    <span class="message">
+        {{ message.message }}
+    </span>
+</q>

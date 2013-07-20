@@ -1,0 +1,5 @@
+{% if user.avatar is not null %} 
+    <img src="{{ asset('avatars/' ~ user.avatar) }}" alt="{{ user.username }}" /> 
+{% else %}
+    <img src="{{ asset('img/default_avatar.jpeg') }}" alt="{{ user.username }}" />
+{% endif %}

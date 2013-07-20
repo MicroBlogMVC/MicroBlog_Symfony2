@@ -1,0 +1,7 @@
+parameters:
+#    mvc_blog.example.class: Mvc\BlogBundle\Example
+
+services:
+#    mvc_blog.example:
+#        class: %mvc_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

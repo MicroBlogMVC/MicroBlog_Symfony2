@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">  
+        <title>Twitter Mvc</title> 
+
+      <!--   <link href="{{ asset('css/reset.css') }}" rel="stylesheet" type="text/css" />  
+        <link href="{{ asset('css/bootstrap-forms.min.css') }}" rel="stylesheet" type="text/css" />  
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />  
+        <link href="{{ asset('css/font-icons.css') }}" rel="stylesheet" type="text/css" />   -->
+
+        {% stylesheets filter='cssrewrite'
+            'css/reset.css'
+            'css/style.css'
+            'css/font-icons.css'
+         %}
+
+          <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+
+
+    </head>
+    <body>
+      
+       <header>        
+            <h1>
+                NameOrLogoHere
+                <small>- Symfony 2.3.1</small>
+            </h1>
+            <div>
+                Written by 
+                <a href="#" title="The one who made this version">Someone</a>
+            </div>
+        </header>
+
+        {% include 'nav.html.twig' %}
+
+        
+        <section>         
+            {# Display all flash messages #}
+            {% for type, messages in app.session.flashbag.all %}
+                {% for message in messages %}
+                    <div class="alert-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            {# Partial views come here #}
+            {% block content %}
+            {% endblock %}
+        </section>
+
+    </body>
+</html>

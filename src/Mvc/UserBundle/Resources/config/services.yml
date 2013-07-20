@@ -1,0 +1,7 @@
+parameters:
+#    mvc_user.example.class: Mvc\UserBundle\Example
+
+services:
+#    mvc_user.example:
+#        class: %mvc_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

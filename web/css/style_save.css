@@ -1,0 +1,355 @@
+/* ----------------------------
+    Layout & Globals
+------------------------------- */
+html { overflow-y: scroll; }
+
+body {
+    font-size: 100%;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    background: #CEE6E6;
+    background: #DAEBEB;
+    padding-bottom: 2em;
+}
+
+.wrap {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.well {
+    border-radius: 0 0 5px 5px;
+    padding: 2em;
+    background: #FFF;
+}
+
+.pull-right {
+    float: right;
+}
+
+header a, nav a {color: #FFF;}
+#content a { 
+    color: #36B0D5;
+    text-decoration: none;
+}
+#content a:hover { text-decoration: underline; }
+
+.deleteMessage {
+    float: right;
+    padding-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 21px;
+    color: #333;
+    border-bottom: 1px solid #BBB;
+    padding-bottom: 0.7em;
+    margin-bottom: 1.5em;
+}
+
+h2 i, legend i { padding-left: 1em; }
+
+
+
+.btnDelete {
+    text-align: right;
+    display: block;
+    font-size: 0.8em;
+    color: #333;
+    color: #36B0D5;
+    text-decoration: none;
+    border-right: 4px;
+    padding-top: 1em;
+}
+
+
+form {
+    margin-left: 200px;
+}
+
+
+/* ---------------------
+    Header
+------------------------ */
+header {
+    color: #FFF;
+    position: relative;
+    font-family: Arial, 'helvetica neue', Helvetica, Verdana, sans-serif;
+    padding: 2em;
+    background: #1F949E;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 150%;
+    color: #FFF;
+}
+
+h1 small {
+    font-size: 60%;
+    padding-left: 1em;
+}
+
+#credits {
+    float: right;
+    font-size: 80%;
+}
+
+
+
+
+
+
+
+
+/* ---------------------
+    Nav
+------------------------ */
+nav {
+    padding-top: 15px;
+    /*padding-bottom: 15px;*/
+    background: #000;
+}
+
+nav li { display: inline-block; min-width: 8em; text-align: center; }
+
+nav a {
+    display: block;
+    padding: 0.8em 2em 2em 2em;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 80%;
+}
+
+nav i {
+    font-size: 180%;
+    padding-bottom: 0.8em;
+    text-align: center;
+    display: block;
+    transition: all 0.2s;
+}
+
+nav li:hover a{ color: #53C3EB; }
+
+nav li:hover i {
+    color: #53C3EB;
+    -webkit-transform: scale(1.3);
+}
+
+nav li.active a {
+    background: #DAEBEB;
+    background: #fff;
+    color: #333;
+    border-radius: 4px 4px 0 0;
+}
+
+nav li.active:hover i{
+    -webkit-transform: none;
+    color: #333;
+}
+
+nav li.active span {
+    position: relative;
+    top: 10px;
+}
+
+
+.connection {
+    padding-top: 0.6em;
+    font-size: 90%;
+    float: right;
+}
+
+.connection.active { border-radius: 20px; }
+
+
+
+
+/* ---------------------------
+    Content
+----------------------------- */
+#content { 
+    border-radius: 0 0 5px 5px;
+    padding: 2em;
+    max-width: 56em;
+    background: #FFF;
+}
+
+
+.alert {
+    text-align: center;
+    color: #444;
+    font-weight: bold;
+    margin: 1em 0; 
+    padding: 1.5em;
+    border-radius: 5px;
+}
+.alert.info {
+    background: #CEF0F3;
+}
+
+.error {
+    background: #F9A2B3;
+}
+
+
+
+
+/* ---------------------------
+    Tweets
+----------------------------- */
+
+#tweets q, #profile li {
+    display: block;
+    padding: 1.5em;
+    border-top: 1px solid #DDD;
+}
+
+
+
+#tweets q:first-child, #profile li:first-child{ border-top: none; }
+
+#tweets img {
+    position: absolute;
+}
+#tweets small, #tweets .message {
+    margin-left: 70px;
+}
+.message {
+    display: block;
+    font-size: 90%;
+    max-width: 80%;
+}
+
+
+#tweets small {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1em;
+    color: #222;
+    font-size: 95%;
+}
+
+
+.date  {
+    font-size: 80%;
+    /*float: right;*/
+    color: #444;
+}
+
+
+
+
+
+
+/* --------------------------
+    Users
+---------------------------- */
+
+#users { padding: 0 1.5em 1.5em; }
+
+#users li {
+    clear: both;
+    border-bottom: 1px solid #CCC;
+}
+#users li:last-child { border-bottom: none; }
+
+#users a {
+    display: block;
+    height: 50px;
+    padding: 1.5em 1em;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+#users a:hover { background: #ECECEC; text-decoration: none; }
+
+#users img {
+    float: left;
+    margin-right: 1em;
+}
+
+#users .login { line-height: 2em; }
+
+#users .bio {
+    font-size: 90%;
+    display: block;
+    font-weight: normal;
+}
+
+#users i {
+    margin-right: 1em;
+    float: right;
+    margin-top: 0.8em;
+}
+
+
+
+
+/* -------------
+    Profile 
+-----------------*/
+#profile img {
+    float: left;
+    margin-right: 1em;
+}
+#profile small {
+    margin-top: 0.5em;
+    display: block;
+    font-size: 80%;
+}
+#profile ul .btn {
+    clear: both;
+    margin-top: 0.4em;
+}
+#profile li {
+    margin-bottom: 0.5em;
+}
+
+
+label {
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 0.5em;
+}
+
+
+
+
+/* -------------
+    Buttons
+-----------------*/
+input[type=submit], a.btn{
+    display: block;
+    cursor: pointer;
+    padding: 0.2em 0.6em;
+    border: 2px solid #3DA0BD;
+    border-radius: 5px;
+    background: #58B6FE;
+    color: #FFF;
+    transition: all 0.3s;
+}
+
+input[type=submit]{
+    font-weight: bold;
+    margin-top: 1.5em;  
+}
+
+a.btn {
+    font-size: 90%;
+    text-decoration: none;
+}
+a.btn-small {
+    font-size: 80%;
+    padding: 0.1em 0.4em;
+}
+
+input[type=submit]:hover, a.btn:hover {
+    background: #FFF;
+    text-shadow: none;
+    border-color: #30A0F6;
+    color: #30A0F6;
+}
+.error {
+    color: #FF1C40;
+    margin-left: 1em;
+}

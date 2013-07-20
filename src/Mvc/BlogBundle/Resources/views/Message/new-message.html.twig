@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    
+    <form action="{{ path('new_message') }}" method="POST" novalidate>
+        <fieldset>
+            {{ form_label(form.message) }}
+            {{ form_errors(form.message, {'attr': {'class': 'error'}}) }}
+            {{ form_widget(form.message) }} 
+            {{ form_rest(form) }}
+            <input type="submit" value="Send">
+        </fieldset>
+    </form>
+
+
+    {# 
+        We can use : 
+        {{ form_widget(form) }}
+        to display all the form with a single line.
+    #}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+home:
+    pattern:  /
+    defaults: { _controller: MvcBlogBundle:Message:index }
+
+new_message:
+    pattern: /new
+    defaults: { _controller: MvcBlogBundle:Message:new }
+
+delete_message:
+    pattern: /delete/{id}
+    defaults: { _controller: MvcBlogBundle:Message:delete }
+    requirements: 
+        id: \d+

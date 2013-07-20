@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <ul id="users">
+        {% for user in users %}
+            <li>
+                <a href="{{ path('user_profile', {'username' : user.username}) }}">
+
+
+                    {% include 'MvcUserBundle:User:avatar.html.twig' with { 'user': user } %}
+
+                    <strong>
+                        {{ user.username }}
+                    </strong>
+                    <i class="icon-chevron-right"></i>
+
+                    <span>
+                        {{ user.bio }}
+                    </span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
