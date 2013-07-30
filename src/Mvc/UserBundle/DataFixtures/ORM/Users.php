@@ -43,22 +43,22 @@ class Users extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'username' => 'Steven',
                 'bio' => 'Steven\'s bio',
-                'avatar' => 'steven.jpg' 
+                'avatar' => 'jpeg' 
             ),
             array(
                 'username' => 'John',
                 'bio' => 'John\'s bio',
-                'avatar' => 'john.jpg' 
+                'avatar' => 'jpg' 
             ),
             array(
                 'username' => 'Jane',
                 'bio' => 'Jane\'s bio',
-                'avatar' => 'jane.jpg' 
+                'avatar' => 'jpg' 
             ),
             array(
                 'username' => 'Nobody',
                 'bio' => 'Nobody\'s bio',
-                'avatar' => 'nobody.jpg' 
+                'avatar' => 'jpg' 
             )
         );
 

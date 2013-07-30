@@ -1,0 +1,26 @@
+{% import ':macros:avatar.html.twig' as avatar %}
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    
+    <ul id="users">
+        {% for user in users %}
+            <li>
+                <a href="{{ path('see_profile', {'username' : user.username}) }}">
+
+                    {{ avatar.avatar(user) }}
+
+                    <strong>
+                        {{ user.username }}
+                    </strong>
+                    <i class="icon-chevron-right"></i>
+
+                    <span>
+                        {{ user.bio }}
+                    </span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

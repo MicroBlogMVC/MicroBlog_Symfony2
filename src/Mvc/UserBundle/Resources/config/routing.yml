@@ -1,5 +1,5 @@
 users:
-    pattern:  /people
+    pattern:  /users
     defaults: { _controller: MvcUserBundle:User:index }
 
 
@@ -13,7 +13,7 @@ login_check:
 
 sign_up: 
     pattern: /sign-up
-    defaults: { _controller: MvcUserBundle:User:signUp }
+    defaults: { _controller: MvcUserBundle:Security:signUp }
 
 sign_out:
     pattern: /sign-out
@@ -23,8 +23,8 @@ edit_profile:
     defaults: { _controller: MvcUserBundle:User:editProfile }
 
 
-user_profile:
-    pattern: /{username}
+see_profile:
+    pattern: /profile/{username}
     defaults: { _controller: MvcUserBundle:User:profile }
     requirements: 
         username: "[a-zA-Z0-9-]+"

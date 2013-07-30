@@ -20,8 +20,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class User implements UserInterface
 {
-
-
     /**
      * @var integer
      *
@@ -36,7 +34,7 @@ class User implements UserInterface
      *
      * @ORM\Column(name="username", type="string", length=30, unique=true)
      * @Assert\NotBlank
-     * @Assert\Regex(pattern= "/^[a-z0-9-]+$/i", message= "The username must only contain letters, numbers and dashes")
+     * @Assert\Regex(pattern= "/^[a-z0-9-]+$/i", message= "The username may only contain letters, numbers, and dashes")
      * @Assert\Length(min=3, max=30)
      */
     private $username;
@@ -150,7 +148,7 @@ class User implements UserInterface
     {
         if (null !== $this->file) {
             // set image name
-            $this->avatar = $this->id . '_' . $this->file->getClientOriginalName();
+            $this->avatar = $this->getFile()->guessExtension();
         }
     }
 
@@ -162,7 +160,7 @@ class User implements UserInterface
      */
     public function upload()
     {
-        // if no file uploaded, nothing to do
+        // if no file selected, nothing to do
         if (null === $this->file) { 
             return;
         }
@@ -174,16 +172,20 @@ class User implements UserInterface
                 unlink($oldFile);
             }
         }
+
         
         // load the new one
+        $newAvatarName =  $this->id.'.'.$this->getFile()->guessExtension();
+  
         $this->file->move(
             $this->getUploadRootDir(),
-            $this->avatar
+            $newAvatarName
         );
+
 
         // resize it
         $resizer = new ImageResizer;
-        $resizer->crop($this->getUploadRootDir() . '/' . $this->avatar, 50, 50);
+        $resizer->crop($this->getUploadRootDir() . '/' . $newAvatarName, 50, 50);
 
         $this->file = null;
     }
@@ -408,8 +410,6 @@ class User implements UserInterface
 
 
 
-
-
     public function setFile(UploadedFile $file)
     {
         $this->file = $file;
@@ -419,9 +419,9 @@ class User implements UserInterface
             $this->avatar = null;
         }
 
-
         return $this;
     }
+
 
 
     public function getFile()
@@ -432,11 +432,12 @@ class User implements UserInterface
 
 
 
-
     public function getUploadDir()
     {
         return 'avatars';
     }
+
+
 
     
     public function getUploadRootDir()

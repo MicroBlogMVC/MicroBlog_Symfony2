@@ -1,0 +1,7 @@
+{% macro avatar(user) %}
+    {% if user.avatar is not null %}
+        <img src="{{ asset('avatars/' ~ user.id ~ '.' ~ user.avatar ) }}" alt="" />
+    {% else %}
+        <img src="{{ asset('img/default_avatar.jpeg' ) }}" alt="" />
+    {% endif %}
+{% endmacro %}

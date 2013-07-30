@@ -1,0 +1,33 @@
+{% import ':macros:avatar.html.twig' as avatar %}
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <ul id="messages">
+        {% for message in messages %}
+            <li>
+                <div>
+                    <span>
+                        {{ message.createdAt | date("d M Y H:i") }}    
+                    </span>
+                    {% if app.user and app.user.username == message.user.username %}
+                        <a href="{{ path('delete_message', {'id': message.id }) }}">
+                            Delete
+                            <i class="icon-remove"></i>
+                        </a>
+                    {% endif %}
+                </div>
+                {{ avatar.avatar(message.user) }}
+
+                <strong>
+                    {{ message.user.username }}
+                </strong>
+                
+                <q>
+                    {{ message.message }}
+                </q>
+
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

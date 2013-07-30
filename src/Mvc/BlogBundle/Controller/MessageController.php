@@ -22,7 +22,7 @@ class MessageController extends Controller
         // select all messages from the databases
         $messages = $this->getMessageRepo()->findAllWithUsers();
 
-        return $this->render('MvcBlogBundle:Message:timeline.html.twig',
+        return $this->render('MvcBlogBundle:Message:all-messages.html.twig',
                              array('messages' => $messages)
         );
     }
@@ -98,7 +98,7 @@ class MessageController extends Controller
                  ->getFlashBag()
                  ->add('info', 'Your message has been deleted.');
 
-            // rediection to the referer
+            // redirection to the referer
             $referer = $this->get('request')->headers->get('referer');      
             return $this->redirect($referer);
 

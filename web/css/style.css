@@ -35,8 +35,7 @@ a:hover { text-decoration: underline; }
 
 header:after, 
 .messages li:after, 
-#users:after, 
-#users span:after
+#users:after
 {
     clear: both;
     content: '';
@@ -45,6 +44,12 @@ header:after,
     visibility: hidden;
 }
 
+
+#users a:after {
+    content: "";
+    display: block;
+    clear: both;
+}
 
 
 
@@ -58,7 +63,6 @@ header:after,
     font-weight: bold;
     text-align: center;
     padding: 2em;
-    margin-bottom: 2em;
 }
 
 .alert-success {
@@ -74,6 +78,7 @@ header:after,
 .alert-error {
     color: #C34D62;
     font-weight: bold;
+    padding: 1em 1em 2em 0;
 }
 
 
@@ -432,7 +437,7 @@ section {
 #profile > div { /* Clearfix ! */
     background: -webkit-radial-gradient(50% 100%, 50% 5px, #CCC 0%, #F5F5F5 110%);
     margin-bottom: 3em;
-    padding: 2em;
+    padding: 2em 2em 4em 2em;
 }
 
 
@@ -447,9 +452,11 @@ section {
     margin-right: 1em;
 }
 
-#profile p { /* bio */
+#profile > div p { /* bio */
     font-size: 0.9em;
     margin-top: 2em;
+    margin-bottom: -2em;
+    
 }
 
 #profile a:first-child { /* Edit profile btn */
@@ -514,8 +521,7 @@ legend {
     width:100%;
 }
 
-fieldset, 
-.alert-error {
+fieldset {
     margin: 2em auto 0;
     padding: 0;
     width: 14rem;
@@ -581,7 +587,7 @@ input[type=submit] {
     transition: all 0.3s;
     width: 14rem;
 }
-input[type=submit]:hover, 
+input[type=submit]:hover,
 input[type=submit]:focus {
     background: #FFF;
     border-color: #30A0F6;
@@ -590,6 +596,7 @@ input[type=submit]:focus {
 }
 
 form .error {
+    display: block;
     color: #C34D62;
     font-size: 0.8rem;
     font-weight: bold;

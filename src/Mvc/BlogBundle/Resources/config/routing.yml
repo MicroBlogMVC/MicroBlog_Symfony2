@@ -3,11 +3,11 @@ home:
     defaults: { _controller: MvcBlogBundle:Message:index }
 
 new_message:
-    pattern: /new
+    pattern: /new-message
     defaults: { _controller: MvcBlogBundle:Message:new }
 
 delete_message:
-    pattern: /delete/{id}
+    pattern: /delete-message/{id}
     defaults: { _controller: MvcBlogBundle:Message:delete }
     requirements: 
         id: \d+

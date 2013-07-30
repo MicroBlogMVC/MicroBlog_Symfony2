@@ -27,13 +27,13 @@
         
         <li 
             {% if 
-                    (currentRoute == 'user_profile' and app.request.get('username')  == app.user.username) or 
+                    (currentRoute == 'see_profile' and app.request.get('username')  == app.user.username) or 
                     currentRoute == 'edit_profile' 
             %} 
                 class="active" 
             {% endif %}
             >
-            <a href="{{ path('user_profile', {'username' : app.user.username}) }}">
+            <a href="{{ path('see_profile', {'username' : app.user.username}) }}">
                 <i class="icon-user"></i>
                 {{ app.user.username }}
             </a>

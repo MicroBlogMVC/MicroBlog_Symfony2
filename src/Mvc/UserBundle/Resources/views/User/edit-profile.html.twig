@@ -1,3 +1,4 @@
+{% import ':macros:avatar.html.twig' as avatar %}
 {% extends '::base.html.twig' %}
 
 {% block content %}
@@ -10,9 +11,7 @@
             
             {{ form_label(form.avatar) }}
             {{ form_errors(form.avatar) }}
-            {% if user.avatar is not null %}
-                <img src="{{ asset('avatars/' ~ user.avatar) }}" alt="{{ user.username }}">
-            {% endif %}
+            {{ avatar.avatar(user) }}
             {{ form_widget(form.avatar) }}
             
             {{ form_row(form.bio) }}
