@@ -4,9 +4,11 @@
 {% block content %}
 
     <form action="{{ path('edit_profile') }}" method="POST" enctype="multipart/form-data" novalidate >
-        <legend>Edit your profile</legend>
 
         <fieldset>     
+            
+            <legend>Edit your profile</legend>
+            
             {{ form_errors(form) }}
             
             {{ form_label(form.avatar) }}
