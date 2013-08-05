@@ -11,7 +11,7 @@ $loader = require __DIR__.'/../vendor/autoload.php';
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 
 
-$loader->add('Mvc', __DIR__.'/../vendor/mvc/src');
+$loader->add('MicroBlog', __DIR__.'/lib/microblog');
 
 
 return $loader;
