@@ -1,4 +1,4 @@
-Symfony 2.3.1 MicroBlog
+## Symfony 2.3.1 MicroBlog
 
 
 ### Installation
@@ -18,6 +18,9 @@ Symfony 2.3.1 MicroBlog
     php app/console doctrine:schema:create
     php app/console doctrine:fixture:load
 
+##### Make some directories writable
+
+    chmod -R o+w app/cache app/logs web/avatars
 
 
 
