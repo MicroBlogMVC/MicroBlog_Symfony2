@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Message
  *
- * @ORM\Table()
+ * @ORM\Table(name="messages")
  * @ORM\Entity(repositoryClass="Mvc\BlogBundle\Entity\MessageRepository")
  */
 class Message
@@ -56,7 +56,11 @@ class Message
 
 
 
-
+    /*---------------------------
+    -----------------------------
+        CONSTRUCTOR
+    -----------------------------    
+    ---------------------------*/
     public function __construct()
     {
         $this->createdAt = new \Datetime();
@@ -85,6 +89,8 @@ class Message
         return $this->id;
     }
 
+
+
     /**
      * Set message
      *
@@ -107,6 +113,9 @@ class Message
     {
         return $this->message;
     }
+
+
+
 
     /**
      * Set createdAt
@@ -131,6 +140,9 @@ class Message
         return $this->createdAt;
     }
 
+
+
+
     /**
      * Set user
      *
@@ -153,6 +165,4 @@ class Message
     {
         return $this->user;
     }
-
-
 }

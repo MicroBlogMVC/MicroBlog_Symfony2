@@ -4,7 +4,7 @@ namespace Mvc\UserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Mvc\Images\ImageResizer;
+use MicroBlog\Images\ImageResizer;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * User
  *
- * @ORM\Table()
+ * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="Mvc\UserBundle\Entity\UserRepository")
  * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields="username", message="This username is already used")
@@ -86,8 +86,6 @@ class User implements UserInterface
     private $messages;
 
 
-
-
     
     /**
      * @Assert\Valid()
@@ -100,18 +98,11 @@ class User implements UserInterface
     private $file;
 
     
-    private $previousFilePath;
+    private $previousFileName;
 
 
 
-    public function __sleep(){
-        return array(
-            'id',
-            'username',
-            'password',
-            'salt'
-        );
-    }
+
 
 
 
@@ -154,7 +145,6 @@ class User implements UserInterface
 
 
 
-
     /**
      * @ORM\PostUpdate()
      */
@@ -166,8 +156,8 @@ class User implements UserInterface
         }
 
         // delete previous avatar if exists
-        if (null !== $this->previousFilePath) {
-            $oldFile = $this->getUploadRootDir().'/' . $this->previousFilePath;
+        if (null !== $this->previousFileName) {
+            $oldFile = $this->getUploadRootDir().'/' . $this->previousFileName;
             if (file_exists($oldFile)) {
                 unlink($oldFile);
             }
@@ -226,6 +216,8 @@ class User implements UserInterface
         return $this->id;
     }
 
+
+
     /**
      * Set username
      *
@@ -248,6 +240,8 @@ class User implements UserInterface
     {
         return $this->username;
     }
+
+
 
     /**
      * Set password
@@ -272,6 +266,9 @@ class User implements UserInterface
         return $this->password;
     }
 
+
+
+
     /**
      * Set salt
      *
@@ -294,6 +291,8 @@ class User implements UserInterface
     {
         return $this->salt;
     }
+
+
 
     /**
      * Set roles
@@ -320,9 +319,6 @@ class User implements UserInterface
 
 
 
-
-
-
     /**
      * Set bio
      *
@@ -345,6 +341,7 @@ class User implements UserInterface
     {
         return $this->bio;
     }
+
 
 
     /**
@@ -410,20 +407,29 @@ class User implements UserInterface
 
 
 
+    /**
+     * Set file
+     *
+     * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
+     * @return User
+     */
     public function setFile(UploadedFile $file)
     {
         $this->file = $file;
 
         if (null !== $this->avatar) {
-            $this->previousFilePath = $this->avatar;
+            $this->previousFileName = $this->id .'.' . $this->avatar;
             $this->avatar = null;
         }
 
         return $this;
     }
 
-
-
+    /**
+     * Get file
+     *
+     * @return \Symfony\Component\HttpFoundation\File\UploadedFile;
+     */
     public function getFile()
     {
         return $this->file;
@@ -431,7 +437,11 @@ class User implements UserInterface
 
 
 
-
+    /**
+     * Get upload dir
+     *
+     * @return string
+     */
     public function getUploadDir()
     {
         return 'avatars';
@@ -439,15 +449,14 @@ class User implements UserInterface
 
 
 
-    
+    /**
+     * Get upload root dir
+     *
+     * @return string
+     */
     public function getUploadRootDir()
     {
         return __DIR__.'/../../../../web/' . $this->getUploadDir();
     }
-
-
-
-
-
 
 }
