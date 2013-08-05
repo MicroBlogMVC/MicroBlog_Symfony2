@@ -41,24 +41,24 @@ class Users extends AbstractFixture implements OrderedFixtureInterface,
         // Describe all users
         $usersInfos = array(
             array(
-                'username' => 'Steven',
-                'bio' => 'Steven\'s bio',
-                'avatar' => 'jpeg' 
+                'username' => 'Abraham_Lincoln',
+                'bio' => '16th President of the United States',
+                'avatar' => 'jpg'
+            ),            
+            array(
+                'username' => 'Albert_Einstein',
+                'bio' => 'Theoretical physicist who developed the general theory of relativity',
+                'avatar' => 'jpg'
             ),
             array(
-                'username' => 'John',
-                'bio' => 'John\'s bio',
-                'avatar' => 'jpg' 
+                'username' => 'Edgar_Allan_Poe',
+                'bio' => 'Author, poet, editor, and literary critic, considered part of the American Romantic Movement',
+                'avatar' => 'jpg'
             ),
             array(
-                'username' => 'Jane',
-                'bio' => 'Jane\'s bio',
-                'avatar' => 'jpg' 
-            ),
-            array(
-                'username' => 'Nobody',
-                'bio' => 'Nobody\'s bio',
-                'avatar' => 'jpg' 
+                'username' => 'Emily_Dickinson',
+                'bio' => 'American poet',
+                'avatar' => 'jpg'
             )
         );
 
