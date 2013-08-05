@@ -27,4 +27,4 @@ see_profile:
     pattern: /profile/{username}
     defaults: { _controller: MvcUserBundle:User:profile }
     requirements: 
-        username: "[a-zA-Z0-9-]+"
+        username: "[a-zA-Z0-9_-]+"

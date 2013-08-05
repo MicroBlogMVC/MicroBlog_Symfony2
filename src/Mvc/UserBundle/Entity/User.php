@@ -34,7 +34,7 @@ class User implements UserInterface
      *
      * @ORM\Column(name="username", type="string", length=30, unique=true)
      * @Assert\NotBlank
-     * @Assert\Regex(pattern= "/^[a-z0-9-]+$/i", message= "The username may only contain letters, numbers, and dashes")
+     * @Assert\Regex(pattern= "/^[a-z0-9_-]+$/i", message= "The username may only contain letters, numbers, underscores and dashes")
      * @Assert\Length(min=3, max=30)
      */
     private $username;
