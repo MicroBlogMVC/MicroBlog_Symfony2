@@ -10,7 +10,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Mvc\BlogBundle\Entity\MessageRepository")
- * @ORM\HasLifecycleCallbacks
  */
 class Message
 {
@@ -57,6 +56,11 @@ class Message
 
 
 
+
+    public function __construct()
+    {
+        $this->createdAt = new \Datetime();
+    }
 
 
 
@@ -148,24 +152,6 @@ class Message
     public function getUser()
     {
         return $this->user;
-    }
-
-
-
-
-
-    /*---------------------------
-    -----------------------------
-        CALLBACKS
-    -----------------------------    
-    ---------------------------*/
-    /**
-     * @ORM\PrePersist
-     */
-    public function onPrePersist()
-    {
-        // set default date
-        $this->createdAt = new \Datetime();
     }
 
 

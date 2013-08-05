@@ -31,7 +31,7 @@ class Users extends AbstractFixture implements OrderedFixtureInterface,
 
 
     /**
-     * Allow us to create some fake users into the database
+     * Allow us to create some users into the database
      */
     public function load(ObjectManager $manager)
     {

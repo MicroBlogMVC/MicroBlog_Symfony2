@@ -59,25 +59,6 @@ class Messages extends AbstractFixture implements OrderedFixtureInterface
         ];
 
 
-        // $messages = array(
-        //     array(
-        //         'message' => 'Just setting up my tiny Twitter',
-        //         'user' => 'Steven'
-        //     ),
-        //     array(
-        //         'message' => 'Nothing wrong with a man taking pleasure in his work',
-        //         'user' => 'John'
-        //     ),
-        //     array(
-        //         'message' => 'If you don\'t like what\'s being said, change the conversation',
-        //         'user' => 'Jane'
-        //     ),
-        //     array(
-        //           'message' => 'I don\'t know what to say',
-        //           'user' => 'Nobody'
-        //     )
-        // );
-
 
         foreach ($seed as $author => $quotes) {
             foreach ($quotes as $quote) {
@@ -87,26 +68,12 @@ class Messages extends AbstractFixture implements OrderedFixtureInterface
                 $message->setUser(
                     $manager->merge($this->getReference($author))
                 );
-                $message->setCreatedAt($quote['created_at']);
+                $message->setCreatedAt(new \Datetime($quote['created_at']));
                 $manager->persist($message);
             }
         }
 
         $manager->flush();
-
-       
-        // foreach ($messages as $infos) {
-        //     $message = new Message;
-
-        //     $message->setMessage($infos['message']);
-        //     $message->setUser(
-        //         $manager->merge($this->getReference($infos['user']))
-        //     );
-           
-        //     $manager->persist($message);
-        // }
-
-        // $manager->flush();
     }
 
 
