@@ -2,13 +2,18 @@
 
 {% block content %}
 
-
     <form action="{{ path('sign_up') }}" method="POST" novalidate>
-        <legend>Sign Up</legend>
+    
         <fieldset>
+            
+            <legend>Sign Up</legend>
+            
             {{ form_widget(form) }}
+            
             <input type="submit" value="Sign Up" />
+        
         </fieldset>
+    
     </form>
 
 {% endblock %}

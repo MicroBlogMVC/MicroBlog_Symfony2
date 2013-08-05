@@ -2,19 +2,29 @@
 
 
 {% block content %}
+
     <form action="{{ path('login_check') }}" method="POST" novalidate>
-        <legend>Sign In</legend>
+        
+        <fieldset>
+            <legend>Sign In</legend>
+           
             {% if error %}
                 <p class="alert-error">
                     {{ error.message }}
                 </p>
             {% endif %}
-        <fieldset>
+
             <label for="username">Username</label>
             <input type="text" name="_username" id="username" value="{{ last_username }}" />
+           
             <label for="password">Password</label>
             <input type="password" name="_password" id="password" />
+           
             <input type="submit" value="Sign In" />
+        
         </fieldset>
+
     </form>
+
+
 {% endblock %}
